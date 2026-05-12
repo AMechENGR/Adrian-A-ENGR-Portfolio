@@ -392,6 +392,7 @@
           const img = document.createElement('img');
           img.src = e.target.result;
           img.alt = file.name;
+          img.onclick = () => openLightbox(img.src);
           slot.appendChild(img);
           gallery.appendChild(slot);
         };
@@ -399,6 +400,33 @@
       });
       input.value = '';
     }
+
+    function openLightbox(src) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  lightboxImg.src = src;
+  lightbox.classList.add('open');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+/* close when background clicked */
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target.id === 'lightbox') {
+    closeLightbox();
+  }
+});
+
+/* ESC key closes lightbox */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeLightbox();
+  }
+});
+    
   </script>
   <!-- IMAGE LIGHTBOX -->
   <div class="lightbox" id="lightbox">

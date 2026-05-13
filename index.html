@@ -191,25 +191,55 @@
                     GitHub
                   </a>
                 </div>
-                <div class="photo-gallery" id="gallery-proj-1">
+                
+                <div class="project-slider">
 
-                <div class="photo-slot">
-                  <img src="images/combatflipperfront.jpeg" alt="Combat Robot Front View">
-                </div>
-                <div class="photo-slot">
-                  <img src="images/combatflippertop.jpeg" alt="Combat Robot CAD">
-                </div>
-                <div class="photo-slot">
-                  <img src="images/combatarena.jpeg" alt="Combat Robot Assembly">
-                </div>
-              </div>
-                <div style="margin-top:1rem;">
-                  <label style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;font-family:'Syne Mono',monospace;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;border:1px dashed var(--border2);padding:8px 16px;border-radius:20px;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                    Add Photos
-                    <input type="file" accept="image/*" multiple style="display:none" onchange="addPhotos(this, 'gallery-proj-1')">
-                  </label>
-                </div>
+  <button class="slider-btn prev" onclick="moveSlider(this, -1)">
+    &#10094;
+  </button>
+
+  <div class="slider-window">
+    <div class="slider-track">
+
+      <div class="slide">
+        <img src="images/combatflipperfront.jpeg"
+             alt="Combat Robot Front View"
+             onclick="openLightbox(this.src)">
+      </div>
+
+      <div class="slide">
+        <img src="images/combatflippertop.jpeg"
+             alt="Combat Robot CAD"
+             onclick="openLightbox(this.src)">
+      </div>
+
+      <div class="slide">
+        <img src="images/combatarena.jpeg"
+             alt="Combat Robot Arena"
+             onclick="openLightbox(this.src)">
+      </div>
+
+      <div class="slide">
+        <img src="images/combat4.jpeg"
+             alt="Combat Robot"
+             onclick="openLightbox(this.src)">
+      </div>
+
+      <div class="slide">
+        <img src="images/combat5.jpeg"
+             alt="Combat Robot"
+             onclick="openLightbox(this.src)">
+      </div>
+
+    </div>
+  </div>
+
+  <button class="slider-btn next" onclick="moveSlider(this, 1)">
+    &#10095;
+  </button>
+
+</div>
+                
               </div>
             </div>
           </div>
@@ -360,74 +390,121 @@
   </div>
 
   <script>
-    function showPage(id, el) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-      document.getElementById('page-' + id).classList.add('active');
-      el.classList.add('active');
+  function showPage(id, el) {
+    document.querySelectorAll('.page')
+      .forEach(p => p.classList.remove('active'));
+
+    document.querySelectorAll('nav a')
+      .forEach(a => a.classList.remove('active'));
+
+    document.getElementById('page-' + id)
+      .classList.add('active');
+
+    el.classList.add('active');
+  }
+
+  function toggleProject(id) {
+    const item = document.getElementById(id);
+    const body = document.getElementById(id + '-body');
+
+    const isOpen =
+      item.classList.contains('open');
+
+    document.querySelectorAll('.project-item')
+      .forEach(i => i.classList.remove('open'));
+
+    document.querySelectorAll('.project-body')
+      .forEach(b => b.classList.remove('open'));
+
+    if (!isOpen) {
+      item.classList.add('open');
+      body.classList.add('open');
+    }
+  }
+
+  /* ── SLIDER ── */
+  function moveSlider(button, direction) {
+
+    const slider =
+      button.parentElement;
+
+    const track =
+      slider.querySelector('.slider-track');
+
+    const slides =
+      slider.querySelectorAll('.slide');
+
+    const gap = 16;
+
+    const slideWidth =
+      slides[0].offsetWidth + gap;
+
+    let currentTranslate =
+      parseFloat(track.dataset.translate || 0);
+
+    currentTranslate -= direction * slideWidth;
+
+    const visibleSlides =
+      window.innerWidth <= 550
+        ? 1
+        : window.innerWidth <= 800
+          ? 2
+          : 3;
+
+    const maxTranslate =
+      -(slideWidth * (slides.length - visibleSlides));
+
+    if (currentTranslate > 0) {
+      currentTranslate = 0;
     }
 
-    function toggleProject(id) {
-      const item = document.getElementById(id);
-      const body = document.getElementById(id + '-body');
-      const isOpen = item.classList.contains('open');
+    if (currentTranslate < maxTranslate) {
+      currentTranslate = maxTranslate;
+    }
 
-      document.querySelectorAll('.project-item').forEach(i => i.classList.remove('open'));
-      document.querySelectorAll('.project-body').forEach(b => b.classList.remove('open'));
+    track.style.transform =
+      `translateX(${currentTranslate}px)`;
 
-      if (!isOpen) {
-        item.classList.add('open');
-        body.classList.add('open');
+    track.dataset.translate =
+      currentTranslate;
+  }
+
+  /* ── LIGHTBOX ── */
+  function openLightbox(src) {
+
+    const lightbox =
+      document.getElementById('lightbox');
+
+    const lightboxImg =
+      document.getElementById('lightbox-img');
+
+    lightboxImg.src = src;
+
+    lightbox.classList.add('open');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox')
+      .classList.remove('open');
+  }
+
+  document.getElementById('lightbox')
+    .addEventListener('click', function(e) {
+
+      if (e.target.id === 'lightbox') {
+        closeLightbox();
       }
+
+    });
+
+  document.addEventListener('keydown', function(e) {
+
+    if (e.key === 'Escape') {
+      closeLightbox();
     }
 
-    function addPhotos(input, galleryId) {
-      const gallery = document.getElementById(galleryId);
-      const files = Array.from(input.files);
-      files.forEach(file => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          const slot = document.createElement('div');
-          slot.className = 'photo-slot';
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          img.alt = file.name;
-          img.onclick = () => openLightbox(img.src);
-          slot.appendChild(img);
-          gallery.appendChild(slot);
-        };
-        reader.readAsDataURL(file);
-      });
-      input.value = '';
-    }
-
-    function openLightbox(src) {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-
-  lightboxImg.src = src;
-  lightbox.classList.add('open');
-}
-
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-}
-
-/* close when background clicked */
-document.getElementById('lightbox').addEventListener('click', function(e) {
-  if (e.target.id === 'lightbox') {
-    closeLightbox();
-  }
-});
-
-/* ESC key closes lightbox */
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeLightbox();
-  }
-});
-    
-  </script>
+  });
+</script>
   <!-- IMAGE LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close" onclick="closeLightbox()">×</span>

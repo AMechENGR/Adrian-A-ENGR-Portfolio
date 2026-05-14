@@ -635,11 +635,7 @@
 
       /* ── PROJECT SLIDER ── */
 .project-slider {
-  position: relative;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 2rem;
 }
 
 .slider-window {
@@ -651,6 +647,7 @@
 .slider-track {
   display: flex;
   gap: 16px;
+  width: max-content;
 }
 
 .slide {
@@ -660,6 +657,7 @@
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--surface);
+
   scroll-snap-align: start;
   cursor: pointer;
 

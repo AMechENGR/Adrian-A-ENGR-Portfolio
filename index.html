@@ -195,9 +195,16 @@
              <div class="project-slider">
 
 <button class="slider-btn prev"
-  onclick="this.parentElement.querySelector('.slider-window').scrollBy({left: -300, behavior: 'smooth'})">
-  &#10094;
-  </button>
+onclick="
+const windowEl = this.parentElement.querySelector('.slider-window');
+const slide = this.parentElement.querySelector('.slide');
+windowEl.scrollBy({
+  left: -(slide.offsetWidth + 16),
+  behavior: 'smooth'
+});
+">
+&#10094;
+</button>
 
   <div class="slider-window">
     <div class="slider-track">
@@ -251,8 +258,17 @@
     </div>
   </div>
 
-  <button class="slider-btn next" onclick="this.parentElement.querySelector('.slider-window').scrollBy({left: 300, behavior: 'smooth'})">
-  </button>
+  <button class="slider-btn next"
+onclick="
+const windowEl = this.parentElement.querySelector('.slider-window');
+const slide = this.parentElement.querySelector('.slide');
+windowEl.scrollBy({
+  left: slide.offsetWidth + 16,
+  behavior: 'smooth'
+});
+">
+&#10095;
+</button>
 
 </div>
                 

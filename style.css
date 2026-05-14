@@ -644,6 +644,14 @@
   scroll-behavior: smooth;
 }
 
+.slider-window::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-window {
+  scrollbar-width: none;
+}
+
 .slider-track {
   display: flex;
   gap: 16px;

@@ -654,7 +654,16 @@
 }
 
 .slide {
+  flex: 0 0 calc((100% - 32px) / 3);
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
   scroll-snap-align: start;
+  cursor: pointer;
+
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .slide:hover {

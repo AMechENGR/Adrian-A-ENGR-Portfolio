@@ -523,8 +523,8 @@
     }
 
     .project-body.open {
-       max-height: 100vh;
-    }
+      max-height: 4000px;
+   }
 
     .project-body-inner {
       border-top: 1px solid var(--border);
@@ -645,6 +645,7 @@
 
 .slider-window {
   flex: 1;
+  min-width: 0;
 
   overflow-x: auto;
   overflow-y: hidden;
@@ -698,6 +699,8 @@
   object-fit: cover;
 
   display: block;
+
+  max-width: 100%;
 }
 
 /* Buttons */

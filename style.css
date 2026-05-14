@@ -662,14 +662,14 @@
 
 .slider-track {
   display: flex;
+  padding-right: 0px;
   gap: 16px;
 
   width: max-content;
 }
 
 .slide {
-  flex: 0 0 280px;
-
+  flex: 0 0 calc((100% - 32px) / 3);
   aspect-ratio: 4 / 3;
 
   border-radius: 14px;

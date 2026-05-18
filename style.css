@@ -578,6 +578,7 @@
    }
 
    .project-sidebox h3 {
+     font-family: 'Syne Mono', monospace;
      margin-top: 0;
      margin-bottom: 16px;
    }

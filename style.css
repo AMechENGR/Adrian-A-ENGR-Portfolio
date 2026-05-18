@@ -37,7 +37,7 @@
     .sidebar {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
       min-width: 260px;
       min-height: 100vh;
       height: auto;
@@ -170,7 +170,12 @@
     }
 
     /* ── PAGE SECTIONS ── */
-    .page { display: none; animation: fadeIn 0.4s ease; }
+    .page { 
+       display: none; 
+       animation: fadeIn 0.4s ease; 
+       min-width: 0;
+       
+    }
     .page.active { display: block; }
 
     @keyframes fadeIn {
@@ -374,7 +379,11 @@
     }
 
     /* ── EXPERIENCE PAGE ── */
-    .timeline { position: relative; padding-left: 2rem; }
+    .timeline { 
+       position: relative; 
+       padding-left: 2rem; 
+       min-width: 0;
+    }
 
     .timeline::before {
       content: '';

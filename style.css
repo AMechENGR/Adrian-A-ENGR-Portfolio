@@ -30,7 +30,7 @@
       grid-template-columns: 260px minmax(0, 1fr);
       min-height: 100vh;
       width: 100%;
-      overflow:visible;
+      overflow-x: hidden;
     }
 
     /* ── SIDEBAR ── */
@@ -568,8 +568,8 @@
    }
 
    .project-sidebox {
-     width: 260px;
-     min-width: 260px;
+     width: min(260px, 100%);
+     min-width: 0;
      padding: 20px;
      border: 1px solid #333;
      border-radius: 16px;

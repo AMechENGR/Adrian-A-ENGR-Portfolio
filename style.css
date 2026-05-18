@@ -548,6 +548,30 @@
       max-width: 580px;
       margin-bottom: 1.5rem;
     }
+   .project-layout {
+     display: flex;
+     gap: 32px;
+     align-items: flex-start;
+   }
+
+   .project-main {
+     flex: 1;
+   }
+
+   .project-sidebox {
+     width: 260px;
+     min-width: 260px;
+     padding: 20px;
+     border: 1px solid #333;
+     border-radius: 16px;
+
+     background: rgba(255,255,255,0.03);
+   }
+
+   .project-sidebox h3 {
+     margin-top: 0;
+     margin-bottom: 16px;
+   }
 
       .photo-gallery {
         display: grid;
@@ -769,6 +793,12 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       main { padding: 3rem 2rem; }
+       .project-layout {
+          flex-direction: column;
+        }
+        .project-sidebox {
+          width: 100%;
+        }
     }
 
     @media (max-width: 800px) {

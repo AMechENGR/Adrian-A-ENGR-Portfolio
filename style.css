@@ -46,6 +46,8 @@
       flex-direction: column;
       padding: 3rem 2rem;
       overflow: hidden;
+      height: 100vh; 
+      overflow-y: auto;
     }
 
     .sidebar::before {
@@ -158,7 +160,8 @@
     main { 
        padding: 4rem 3.5rem; 
        overflow: hidden;
-       /*width: 100%;*/
+       max-width: 100%;
+       overflow: hidden;
        min-width: 0; 
        box-sizing: border-box; }
 

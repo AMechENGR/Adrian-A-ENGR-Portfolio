@@ -49,6 +49,10 @@
       overflow: hidden;
       height: 100vh; 
       overflow-y: auto;
+      width: 260px;
+      box-sizing: 
+      border-box;
+      overflow-x: hidden;
     }
 
     .sidebar::before {

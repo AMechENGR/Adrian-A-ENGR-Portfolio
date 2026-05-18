@@ -2,7 +2,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #A2A3BB; /*0b0b0a*/
+      --bg:       #0b0b0a; /*0b0b0a*/
       --surface:  #131310; /*131310*/
       --border:   #2a2a24; /*2a2a24*/
       --border2:  #3e3e34; /*3e3e34*/

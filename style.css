@@ -740,8 +740,8 @@
 }
 
 .slide {
-  flex: 1 1 0;
-  min-width: 220px;
+  flex: 0 0 calc((100% - 32px) / 3);
+  aspect-ratio: 4 / 3;
   
   aspect-ratio: 4 / 3;
 
@@ -752,6 +752,7 @@
   background: var(--surface);
 
   scroll-snap-align: start;
+
 }
 
 .slide img {
@@ -849,6 +850,9 @@
         .project-sidebox {
           width: 100%;
         }
+       .slide {
+    flex: 0 0 calc((100% - 16px) / 2);
+  }
     }
 
     @media (max-width: 800px) {

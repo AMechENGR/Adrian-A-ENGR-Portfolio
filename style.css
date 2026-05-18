@@ -37,6 +37,7 @@
     .sidebar {
       position: sticky;
       top: 0;
+      z-index: 10;
       min-width: 260px;
       min-height: 100vh;
       height: auto;
@@ -159,11 +160,14 @@
     /* ── MAIN ── */
     main { 
        padding: 4rem 3.5rem; 
-       overflow: hidden;
+       overflow: visible;
        max-width: 100%;
        overflow: hidden;
        min-width: 0; 
-       box-sizing: border-box; }
+       box-sizing: border-box; 
+       position: relative;
+       z-index: 1;
+    }
 
     /* ── PAGE SECTIONS ── */
     .page { display: none; animation: fadeIn 0.4s ease; }

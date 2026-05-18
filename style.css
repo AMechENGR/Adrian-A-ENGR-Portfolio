@@ -157,6 +157,7 @@
     /* ── MAIN ── */
     main { 
        padding: 4rem 3.5rem; 
+       overflow: hidden;
        /*width: 100%;*/
        min-width: 0; 
        box-sizing: border-box; }
@@ -187,6 +188,8 @@
       line-height: 1;
       color: var(--text);
       margin-bottom: 2.5rem;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     .page-heading em {
@@ -530,7 +533,7 @@
     }
 
     .project-body.open {
-      max-height: 99999;
+      max-height: 99999px;
    }
 
     .project-body-inner {

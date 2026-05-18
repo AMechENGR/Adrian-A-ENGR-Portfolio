@@ -30,7 +30,7 @@
       grid-template-columns: 260px minmax(0, 1fr);
       min-height: 100vh;
       width: 100%;
-      overflow-x: hidden;
+      overflow:visible;
     }
 
     /* ── SIDEBAR ── */
@@ -38,7 +38,8 @@
       position: sticky;
       top: 0;
       min-width: 260px;
-      height: 100vh;
+      min-height: 100vh;
+      height: auto;
       background: var(--surface);
       border-right: 1px solid var(--border);
       display: flex;
@@ -154,7 +155,11 @@
     .contact-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* ── MAIN ── */
-    main { padding: 4rem 3.5rem; width: 100%; min-width: 0; box-sizing: border-box; }
+    main { 
+       padding: 4rem 3.5rem; 
+       /*width: 100%;*/
+       min-width: 0; 
+       box-sizing: border-box; }
 
     /* ── PAGE SECTIONS ── */
     .page { display: none; animation: fadeIn 0.4s ease; }
@@ -520,11 +525,11 @@
     .project-body {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: max-height 0.5s ease;
     }
 
     .project-body.open {
-      max-height: 2400px;
+      max-height: 99999;
    }
 
     .project-body-inner {
@@ -557,6 +562,7 @@
 
    .project-main {
      flex: 1;
+     min-width: 0;
    }
 
    .project-sidebox {

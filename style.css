@@ -582,14 +582,14 @@
     }
    .project-layout {
      display: flex;
-     gap: 32px;
+     gap: 16px;
      align-items: flex-start;
      width: 100%;
    }
 
    .project-main {
      min-width: 0;
-     padding-right: 1rem;
+     padding-right: 0;
      display: flex;
      flex: 1 1 0;
      flex-direction: column;
@@ -614,7 +614,6 @@
      padding: 20px;
      border: 1px solid #333;
      border-radius: 16px;
-     padding-top: 4px;
 
      background: rgba(255,255,255,0.03);
    }

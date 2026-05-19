@@ -567,7 +567,7 @@
       font-weight: 300;
       line-height: 1.8;
       color: var(--text);
-      max-width: 620px;
+      max-width: 750px;
       min-width: 350px;
       margin-bottom: 1rem;
     }
@@ -576,7 +576,7 @@
       font-size: 16px;
       color: #9a9280;
       line-height: 1.75;
-      max-width: 620px;
+      max-width: 750px;
       margin-bottom: 1rem;
       min-width: 350px
     }

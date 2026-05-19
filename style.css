@@ -591,9 +591,10 @@
      min-width: 0;
      padding-right: 1rem;
      display: flex;
-     flex: 1;
+     flex: 1 1 0;
      flex-direction: column;
      gap: 1rem;
+     width: 100%;
    }
 
    .project-main ul {
@@ -607,7 +608,7 @@
    }
 
    .project-sidebox {
-     width: min(260px, 100%);
+     /*width: min(260px, 100%);*/
      font-family: 'Syne', sans-serif;
      min-width: 0;
      padding: 20px;
@@ -625,7 +626,7 @@
    }
 
    .project-sidebar {
-     width: min(260px, 100%);
+     flex: 0 0 260px;
      display: flex;
      flex-direction: column;
      gap: 16px;

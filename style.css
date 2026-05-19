@@ -624,6 +624,23 @@
      margin-bottom: 16px;
    }
 
+   .project-sidebar {
+     width: min(260px, 100%);
+     display: flex;
+     flex-direction: column;
+     gap: 16px;
+     flex-shrink: 0;
+   }
+
+   .project-sidebar .proj-links {
+     flex-direction: column;
+     align-items: stretch;
+   }
+
+   .project-sidebar .proj-link {
+     justify-content: center;
+   }
+
       .photo-gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

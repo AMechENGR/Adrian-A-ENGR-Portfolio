@@ -613,6 +613,7 @@
      padding: 20px;
      border: 1px solid #333;
      border-radius: 16px;
+     padding-top: 4px;
 
      background: rgba(255,255,255,0.03);
    }
@@ -723,14 +724,13 @@
 
   overflow-x: auto;
   overflow-y: hidden;
-  padding-top: 8px;
+  padding-top: 4px;
   padding-bottom: 8px;
 
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
   scrollbar-width: none;
-  padding-top: 6px;
 }
 
 .slider-window::-webkit-scrollbar {
